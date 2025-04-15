@@ -6,6 +6,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   width?: string;
+  Icon?: React.ReactNode;
 }
 const CustomInput: React.FC<InputProps> = ({
   placeholder,
@@ -13,6 +14,9 @@ const CustomInput: React.FC<InputProps> = ({
   value,
   onChange,
   width = "w-[350px]",
+  Icon = (
+    <CiSearch className="h-2/3 w-2/3 text-white rounded-full bg-black font-bold " />
+  ),
 }) => {
   return (
     <div
@@ -26,7 +30,7 @@ const CustomInput: React.FC<InputProps> = ({
         className="w-full  text-CECCCC text-lg "
       />
       <button className="h-full aspect-square rounded-full bg-black flex justify-center items-center cursor-pointer">
-        <CiSearch className="h-2/3 w-2/3 text-white rounded-full bg-black font-bold " />
+        {Icon}
       </button>
     </div>
   );

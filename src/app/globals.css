@@ -1,3 +1,9 @@
+* {
+  font-family: var(--font-Oxygen);
+  box-sizing: border-box;
+  outline: none;
+}
+
 @import "tailwindcss";
 
 @theme {
@@ -13,11 +19,7 @@
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
   /* ... */
 }
-* {
-  font-family: var(--font-Oxygen);
-  box-sizing: border-box;
-  outline: none;
-}
+
 button {
   cursor: pointer;
 }

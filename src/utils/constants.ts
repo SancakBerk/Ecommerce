@@ -1,4 +1,4 @@
-import { Category, Product } from "@/app/types/homePageTypes";
+import { Category, OngoingItem, Product } from "@/app/types/homePageTypes";
 
 export const products: Product[] = [
   {
@@ -248,4 +248,71 @@ export const categories: Category[] = [
       "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
     description: "Kitaplar, ofis ve okul ürünleri",
   },
+];
+
+export const latestOngoings: OngoingItem[] = [
+  {
+    id: 1,
+    title: "Bahar Kampanyası Başladı!",
+    description: "Seçili ürünlerde %50'ye varan indirimler seni bekliyor.",
+    imageUrl:
+      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    date: 1744746047,
+    link: "/kampanyalar/bahar",
+    author: "Daniel Wellington",
+    authorImageUrl:
+      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+  },
+  {
+    id: 2,
+    title: "Yeni Koleksiyon: 2025 İlkbahar",
+    description: "Moda dünyasında yeni trendlerle tanış!",
+    imageUrl:
+      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    date: 1744746047,
+    link: "/koleksiyon/ilkbahar-2025",
+    author: "Daniel Wellington",
+    authorImageUrl:
+      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+  },
+  {
+    id: 3,
+    title: "Ücretsiz Kargo Fırsatı!",
+    description: "150 TL ve üzeri alışverişlerde kargo ücretsiz.",
+    imageUrl:
+      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    date: 1744746047,
+    author: "Daniel Wellington",
+    authorImageUrl:
+      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+  },
+];
+
+export const MONTHS_TR: string[] = [
+  "Ocak",
+  "Şubat",
+  "Mart",
+  "Nisan",
+  "Mayıs",
+  "Haziran",
+  "Temmuz",
+  "Ağustos",
+  "Eylül",
+  "Ekim",
+  "Kasım",
+  "Aralık",
+];
+export const MONTHS_EN: string[] = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
 ];

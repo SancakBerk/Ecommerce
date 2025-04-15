@@ -19,3 +19,13 @@ export type Category = {
   imageUrl: string;
   description?: string;
 };
+export type OngoingItem = {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  date: number;
+  link?: string;
+  author: string;
+  authorImageUrl: string;
+};

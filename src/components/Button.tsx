@@ -10,12 +10,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   width?: string;
 }
 
-const Button: FC<ButtonProps> = ({ text, width = "w-[250px]" }) => {
+const Button: FC<ButtonProps> = ({ text, width = "w-[200px]" }) => {
   return (
     <motion.button
-      className={`flex items-center justify-evenly bg-[#282828] text-white rounded-[64px] p-4 ${width} hover:bg-[#3D3D3D] transition duration-300 ease-in-out`}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      className={`flex items-center justify-evenly bg-[#282828] text-white rounded-[64px] p-4 ${width} hover:bg-[#3D3D3D] transition duration-300 ease-in-out `}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.5 }}
     >
       <p>{text}</p>
       <FaAngleRight size={24} />

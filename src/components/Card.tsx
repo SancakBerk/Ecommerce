@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 interface cardProps {
   isVertical?: boolean;
   width?: string;
@@ -6,6 +7,7 @@ interface cardProps {
   bgImage: string;
   name?: string;
   className?: string;
+  animated?: boolean;
 }
 
 const Card: React.FC<cardProps> = ({
@@ -15,12 +17,19 @@ const Card: React.FC<cardProps> = ({
   bgImage,
   name,
   className,
+  animated = true,
 }) => {
   const aspectRatio = isVertical ? "aspect-[77/100]" : "aspect-[100/77]";
 
   return (
-    <div className={`${aspectRatio} ${width} ${className}  `}>
-      <div className={`${aspectRatio} ${width} relative p-[10%]`}>
+    <motion.div
+      className={`${aspectRatio} ${width} ${className}  rounded-[20px] bg-gray-200  `}
+    >
+      <motion.div
+        whileHover={animated ? { scale: 1.05 } : {}}
+        whileTap={{ scale: 0.9 }}
+        className={`${aspectRatio} ${width} relative p-[10%] `}
+      >
         <Image
           className="w-full h-full rounded-[14px] focus:ring-0 outline-0"
           src={bgImage}
@@ -40,8 +49,8 @@ const Card: React.FC<cardProps> = ({
             {name}
           </div>
         )}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 export default Card;
