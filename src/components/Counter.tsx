@@ -11,7 +11,7 @@ interface CounterProps {
 
 const Counter: React.FC<CounterProps> = ({
   end,
-  duration = 6,
+  duration = 4,
   suffix = "%",
   counterClass,
 }) => {

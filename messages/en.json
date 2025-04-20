@@ -43,5 +43,17 @@
     "products": "Products",
     "legalPages": "Legal Pages",
     "copyRight": "Copyright © 2023 Renew Bariatrics, Inc"
+  },
+  "productPage": {
+    "categories": "Categories",
+    "priceRange": "Price Range",
+    "ourCollectionOfProducts": "Our Collection of Products",
+    "searchAnItem": "Search An Item",
+    "showing": "Showing",
+    "of": "of",
+    "items": "item(s)",
+    "subParagraph": "Explore our curated collection of home decor, furniture, and accessories that reflect your unique taste and elevate your living spaces.",
+    "loadMore": "Load More",
+    "loading": "Loading..."
   }
 }

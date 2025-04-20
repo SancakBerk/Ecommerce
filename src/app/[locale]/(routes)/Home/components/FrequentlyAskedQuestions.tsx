@@ -7,8 +7,8 @@ import { Accordion } from "@/components/Accordion";
 const FrequentlyAskedQuestions = (): JSX.Element => {
   const t = useTranslations("homePage");
   return (
-    <div className="flex h-auto justify-center p-[4vh] ">
-      <div className=" flex flex-col gap-y-[2vh] w-1/2 px-[4%] ">
+    <div className="flex h-auto justify-center p-[5%] ">
+      <div className=" flex flex-col gap-y-[2vh] w-1/2  ">
         <h1 className="text-[3vw] font-bold ">
           {" "}
           {t("frequentlyAskedQuestions")}{" "}

@@ -2,7 +2,7 @@ export interface discountCardType {
   discountPercentage: number;
 }
 export type Product = {
-  productId: string;
+  productId: number;
   name: string;
   description: string;
   price: number;
@@ -13,12 +13,6 @@ export type Product = {
   discountPercentage?: number;
 };
 
-export type Category = {
-  id: number;
-  name: string;
-  imageUrl: string;
-  description?: string;
-};
 export type OngoingItem = {
   id: number;
   title: string;

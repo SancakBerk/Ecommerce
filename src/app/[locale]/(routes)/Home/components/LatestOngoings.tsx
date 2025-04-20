@@ -9,13 +9,13 @@ import Card from "@/components/Card";
 const LatestOnGoings = (): JSX.Element => {
   const t = useTranslations("homePage");
   return (
-    <div className="w-full h-auto flex flex-col px-[4%]  ">
+    <div className="w-full h-auto flex flex-col p-[5%]  ">
       <div className="flex justify-between ">
         <div className="flex flex-col gap-y-[2vh] w-1/2 ">
           <h1 className="text-[3vw] font-bold"> {t("latestOnGoings")} </h1>
           <p> {t("latestOnGoingsSubText")} </p>
         </div>
-        <Button text={t("readAllBlogs")} />
+        <Button text={t("readAllBlogs")} width=" " />
       </div>
       <div className="flex w-full gap-4 justify-center items-center mt-[5vh]">
         {latestOngoings.map((eachOngoing: OngoingItem, index) => {

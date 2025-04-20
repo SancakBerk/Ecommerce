@@ -43,5 +43,17 @@
     "products": "Ürünler",
     "legalPages": "Yasal Sayfalar",
     "copyRight": "Telif Hakkı © 2023 Renew Bariatrics, Inc"
+  },
+  "productPage": {
+    "categories": "Kategoriler",
+    "priceRange": "Fiyat Aralığı",
+    "ourCollectionOfProducts": "Ürün Koleksiyonumuz",
+    "searchAnItem": "Ürün Ara",
+    "showing": "Gösteriliyor",
+    "of": "toplam",
+    "items": "ürün",
+    "subParagraph": "Evinizin tarzını yansıtan dekorasyon, mobilya ve aksesuar koleksiyonumuzu keşfedin.",
+    "loadMore": "Daha Fazla Yükle",
+    "loading": "Yükleniyor..."
   }
 }

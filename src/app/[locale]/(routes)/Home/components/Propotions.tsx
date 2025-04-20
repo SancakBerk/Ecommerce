@@ -10,7 +10,7 @@ const Proportions = (): JSX.Element => {
     <div className="w-full h-[66vh]  bg-666666 flex justify-center items-center p-[5%] ">
       <div className="w-full h-auto  rounded-2xl flex   gap-x-10 justify-center">
         <div className="flex flex-col w-1/2  gap-y-10  ">
-          <h1 className=" w-3/4 text-white text-[3vw]">
+          <h1 className=" w-3/4 text-white text-[2vw]">
             {" "}
             {t("sellingProportions")}{" "}
           </h1>

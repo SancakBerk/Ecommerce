@@ -6,7 +6,7 @@ export default function HomePage() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/en/HomePage");
+    router.push("/en/Home");
   }, [router]);
 
   return null;
