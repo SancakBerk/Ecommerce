@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkText = false }): JSX.Element => {
   };
 
   return (
-    <div className="w-full h-[5vh] flex justify-center items-center z-10 pt-5 relative ">
+    <div className="w-full h-[5vh] flex justify-center items-center z-10 pt-5 relative  ">
       <div className="w-3/4 h-full flex justify-between">
         <Link
           className="w-1/5 h-full flex justify-center items-center"
@@ -49,6 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkText = false }): JSX.Element => {
           <motion.button
             whileHover={{ scale: 1.1, transition: { duration: 2 } }}
             type="button"
+            onClick={() => router.push(`/${locale}/Home`)}
           >
             {t("home")}
           </motion.button>
@@ -96,6 +97,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkText = false }): JSX.Element => {
             } cursor-pointer`}
           />
           <FaBagShopping
+            onClick={() => router.push("/Cart")}
             className={`  ${
               darkText ? "text-black" : "text-white"
             } cursor-pointer`}

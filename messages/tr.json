@@ -55,5 +55,30 @@
     "subParagraph": "Evinizin tarzını yansıtan dekorasyon, mobilya ve aksesuar koleksiyonumuzu keşfedin.",
     "loadMore": "Daha Fazla Yükle",
     "loading": "Yükleniyor..."
+  },
+  "productDetailPage": {
+    "productDetailBreadcrumbListing": "Ürün Listesi",
+    "productDetailBreadcrumbCurrent": "Örnek Ürün Sayfası",
+    "productTitle": "Çift Kişilik Yatak ve Komodinler",
+    "productPrice": "$54.98",
+    "productReviews": "32 yorum",
+    "productShortDescription": "Lorem ipsum dolor sit amet, consectetur adipi scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.",
+    "productFeature1": "Lorem ipsum dolor sit amet, adipisci scing elit",
+    "productFeature2": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+    "productFeature3": "Lorem ipsum dolor sit amet, consectetuer adipisci",
+    "productAddToCart": "Sepete Ekle",
+    "productBuyNow": "Şimdi Satın Al",
+    "productShippingFree": "$100 üzeri tüm siparişlerde ücretsiz dünya çapında kargo",
+    "productShippingDuration": "Teslim süresi: 3-7 iş günü",
+    "productShippingLink": "Kargo & İade",
+    "tabDescription": "Açıklama",
+    "tabReviews": "Yorumlar",
+    "descriptionContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+    "descriptionList1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "descriptionList2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "descriptionList3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "productLocale": "Dil Seçimi",
+    "productId": "Ürün Kodu",
+    "similarProducts": "Benzer Ürünler"
   }
 }

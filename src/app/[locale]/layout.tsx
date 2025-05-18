@@ -3,7 +3,6 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import ReactQueryProvider from "@/lib/reactQueryProvider";
-
 export async function generateStaticParams() {
   // routing.locales içindeki dillerden static path'ler üret
   return routing.locales.map((locale) => ({ locale }));

@@ -29,7 +29,7 @@ const Card: React.FC<cardProps> = ({
     >
       <motion.div className={`${aspectRatio} ${width} relative p-[10%]  `}>
         <motion.div
-          className="w-full h-full"
+          className="w-full h-full  "
           whileHover={animated ? { scale: 1.05 } : {}}
           transition={{
             duration: animateDuration,
@@ -52,7 +52,7 @@ const Card: React.FC<cardProps> = ({
           </div>
         )}
         {name && (
-          <div className="absolute bottom-[3%] left-[4%] h-[10%] text-black  text-[20px]">
+          <div className="absolute bottom-[1%] left-[4%] h-[auto] text-black  text-[20px]">
             {name}
           </div>
         )}

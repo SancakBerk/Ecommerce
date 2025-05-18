@@ -1,3 +1,5 @@
+import { ProductType } from "./homePageTypes";
+
 export type Category = {
   id: number;
   name: string;
@@ -18,4 +20,9 @@ export type priceRangeType = {
   from: number;
   to: number;
   currency: string;
+};
+
+export type cartItemType = {
+  product: ProductType;
+  quantity: number;
 };

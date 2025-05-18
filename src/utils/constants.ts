@@ -1,5 +1,9 @@
-import { OngoingItem, Product } from "@/app/types/homePageTypes";
-import { Category } from "@/app/types/globalTypes";
+import {
+  OngoingItem,
+  Product,
+  ProductDetailsType,
+} from "@/app/types/homePageTypes";
+import { cartItemType, Category } from "@/app/types/globalTypes";
 
 export const products: Product[] = [
   {
@@ -9,10 +13,17 @@ export const products: Product[] = [
     price: 149.99,
     stock: 30,
     category: "Electronics",
-    imageUrl:
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
     discountPercentage: 20,
+    categoryId: 101,
+    parentCategoryId: 1,
+    averageStars: 4.5,
   },
   {
     productId: 2,
@@ -21,9 +32,15 @@ export const products: Product[] = [
     price: 59.99,
     stock: 50,
     category: "Accessories",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 102,
+    averageStars: 4.5,
   },
   {
     productId: 3,
@@ -32,9 +49,16 @@ export const products: Product[] = [
     price: 129.99,
     stock: 20,
     category: "Wearables",
-    imageUrl:
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 103,
+    parentCategoryId: 1,
+    averageStars: 4.5,
   },
   {
     productId: 4,
@@ -44,9 +68,16 @@ export const products: Product[] = [
     price: 89.99,
     stock: 15,
     category: "Audio",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 104,
+    averageStars: 4.5,
+    parentCategoryId: 1,
   },
   {
     productId: 5,
@@ -55,9 +86,15 @@ export const products: Product[] = [
     price: 39.99,
     stock: 75,
     category: "Office",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 105,
+    averageStars: 4.5,
   },
   {
     productId: 6,
@@ -66,9 +103,15 @@ export const products: Product[] = [
     price: 39.99,
     stock: 75,
     category: "Office",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 106,
+    averageStars: 4.5,
   },
   {
     productId: 7,
@@ -77,9 +120,15 @@ export const products: Product[] = [
     price: 149.99,
     stock: 30,
     category: "Electronics",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 107,
+    averageStars: 4.5,
   },
   {
     productId: 8,
@@ -88,9 +137,15 @@ export const products: Product[] = [
     price: 59.99,
     stock: 50,
     category: "Accessories",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 108,
+    averageStars: 4.5,
   },
   {
     productId: 9,
@@ -99,9 +154,15 @@ export const products: Product[] = [
     price: 129.99,
     stock: 20,
     category: "Wearables",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 109,
+    averageStars: 4.5,
   },
   {
     productId: 10,
@@ -111,9 +172,15 @@ export const products: Product[] = [
     price: 89.99,
     stock: 15,
     category: "Audio",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 110,
+    averageStars: 4.5,
   },
   {
     productId: 11,
@@ -122,9 +189,15 @@ export const products: Product[] = [
     price: 39.99,
     stock: 75,
     category: "Office",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 111,
+    averageStars: 4.5,
   },
   {
     productId: 12,
@@ -133,9 +206,15 @@ export const products: Product[] = [
     price: 39.99,
     stock: 75,
     category: "Office",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 112,
+    averageStars: 4.5,
   },
   {
     productId: 13,
@@ -144,9 +223,15 @@ export const products: Product[] = [
     price: 149.99,
     stock: 30,
     category: "Electronics",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 113,
+    averageStars: 4.5,
   },
   {
     productId: 14,
@@ -155,9 +240,15 @@ export const products: Product[] = [
     price: 59.99,
     stock: 50,
     category: "Accessories",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 114,
+    averageStars: 4.5,
   },
   {
     productId: 15,
@@ -166,9 +257,15 @@ export const products: Product[] = [
     price: 129.99,
     stock: 20,
     category: "Wearables",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 115,
+    averageStars: 4.5,
   },
   {
     productId: 16,
@@ -178,9 +275,15 @@ export const products: Product[] = [
     price: 89.99,
     stock: 15,
     category: "Audio",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 116,
+    averageStars: 4.5,
   },
   {
     productId: 17,
@@ -189,9 +292,15 @@ export const products: Product[] = [
     price: 39.99,
     stock: 75,
     category: "Office",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 117,
+    averageStars: 4.5,
   },
   {
     productId: 18,
@@ -200,9 +309,15 @@ export const products: Product[] = [
     price: 39.99,
     stock: 75,
     category: "Office",
-    imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
     date: 1672531199000, // Example timestamp
+    categoryId: 118,
+    averageStars: 4.5,
   },
 ];
 
@@ -212,35 +327,35 @@ export const latestOngoings: OngoingItem[] = [
     title: "Bahar Kampanyası Başladı!",
     description: "Seçili ürünlerde %50'ye varan indirimler seni bekliyor.",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     date: 1744746047,
     link: "/kampanyalar/bahar",
     author: "Daniel Wellington",
     authorImageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
   },
   {
     id: 2,
     title: "Yeni Koleksiyon: 2025 İlkbahar",
     description: "Moda dünyasında yeni trendlerle tanış!",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     date: 1744746047,
     link: "/koleksiyon/ilkbahar-2025",
     author: "Daniel Wellington",
     authorImageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
   },
   {
     id: 3,
     title: "Ücretsiz Kargo Fırsatı!",
     description: "150 TL ve üzeri alışverişlerde kargo ücretsiz.",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     date: 1744746047,
     author: "Daniel Wellington",
     authorImageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
   },
 ];
 
@@ -279,7 +394,7 @@ export const categories: Category[] = [
     name: "Elektronik",
     slug: "elektronik",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     description: "Akıllı telefonlar, televizyonlar ve diğer elektronik ürünler",
     subCategories: [
       {
@@ -288,7 +403,7 @@ export const categories: Category[] = [
         slug: "akilli-telefonlar",
         parentId: 1,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
       {
         id: 102,
@@ -296,7 +411,7 @@ export const categories: Category[] = [
         slug: "televizyonlar",
         parentId: 1,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
       {
         id: 103,
@@ -304,7 +419,7 @@ export const categories: Category[] = [
         slug: "bilgisayarlar",
         parentId: 1,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
     ],
   },
@@ -313,7 +428,7 @@ export const categories: Category[] = [
     name: "Moda",
     slug: "moda",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     description: "Kadın, erkek ve çocuk modası",
     subCategories: [
       {
@@ -322,7 +437,7 @@ export const categories: Category[] = [
         slug: "kadin-giyim",
         parentId: 2,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
       {
         id: 202,
@@ -330,7 +445,7 @@ export const categories: Category[] = [
         slug: "erkek-giyim",
         parentId: 2,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
       {
         id: 203,
@@ -338,7 +453,7 @@ export const categories: Category[] = [
         slug: "cocuk-giyim",
         parentId: 2,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
     ],
   },
@@ -347,7 +462,7 @@ export const categories: Category[] = [
     name: "Ev & Yaşam",
     slug: "ev-yasam",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     description: "Mobilya, ev dekorasyonu ve yaşam ürünleri",
     subCategories: [
       {
@@ -356,7 +471,7 @@ export const categories: Category[] = [
         slug: "mobilya",
         parentId: 3,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
       {
         id: 302,
@@ -364,7 +479,7 @@ export const categories: Category[] = [
         slug: "dekorasyon",
         parentId: 3,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
     ],
   },
@@ -373,7 +488,7 @@ export const categories: Category[] = [
     name: "Spor & Outdoor",
     slug: "spor-outdoor",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     description: "Spor malzemeleri, outdoor ekipmanları",
     subCategories: [
       {
@@ -382,7 +497,7 @@ export const categories: Category[] = [
         slug: "kamp-ekipmanlari",
         parentId: 4,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
       {
         id: 402,
@@ -390,7 +505,7 @@ export const categories: Category[] = [
         slug: "fitness-aletleri",
         parentId: 4,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
     ],
   },
@@ -399,7 +514,7 @@ export const categories: Category[] = [
     name: "Kozmetik & Kişisel Bakım",
     slug: "kozmetik",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     description: "Makyaj, cilt bakımı, parfümler",
     subCategories: [
       {
@@ -408,7 +523,7 @@ export const categories: Category[] = [
         slug: "makyaj",
         parentId: 5,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
       {
         id: 502,
@@ -416,7 +531,7 @@ export const categories: Category[] = [
         slug: "cilt-bakimi",
         parentId: 5,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
     ],
   },
@@ -425,7 +540,7 @@ export const categories: Category[] = [
     name: "Kitap & Kırtasiye",
     slug: "kitap-kirtasiye",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     description: "Kitaplar, defterler, ofis kırtasiyeleri",
     subCategories: [
       {
@@ -434,7 +549,7 @@ export const categories: Category[] = [
         slug: "roman",
         parentId: 6,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
       {
         id: 602,
@@ -442,7 +557,7 @@ export const categories: Category[] = [
         slug: "egitim-kitaplari",
         parentId: 6,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
     ],
   },
@@ -451,7 +566,7 @@ export const categories: Category[] = [
     name: "Anne & Bebek",
     slug: "anne-bebek",
     imageUrl:
-      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
     description: "Bebek ürünleri, bebek bezi, emzikler",
     subCategories: [
       {
@@ -460,7 +575,7 @@ export const categories: Category[] = [
         slug: "bebek-bezleri",
         parentId: 7,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
       {
         id: 702,
@@ -468,7 +583,7 @@ export const categories: Category[] = [
         slug: "emzikler",
         parentId: 7,
         imageUrl:
-          "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+          "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
       },
     ],
   },
@@ -482,4 +597,226 @@ export const priceRanges = [
   { from: 500, to: 1000, currency: "₺" },
   { from: 1000, to: 5000, currency: "₺" },
   { from: 5000, to: Infinity, currency: "₺" },
+];
+export const productDetails: ProductDetailsType[] = [
+  {
+    productId: 1,
+    name: "Wireless Headphones",
+    description: "High-quality wireless headphones with noise cancellation.",
+    price: 149.99,
+    stock: 30,
+    category: "Electronics",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://in.danielwellington.com/cdn/shop/products/731ffc3293c27cb7ae988a77f0db561c635e3b38.png?v=1679929601&width=1500",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
+    date: 1672531199000,
+    discountPercentage: 20,
+    categoryId: 101,
+    parentCategoryId: 1,
+    averageStars: 4.5,
+    reviews: [
+      {
+        reviewId: 1,
+        productId: 1,
+        userId: 1001,
+        userName: "Zeynep Kaya",
+        userImageUrl:
+          "https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-female-user-profile-vector-illustration-isolated-background-women-profile-sign-business-concept_157943-38866.jpg",
+        reviewDate: 1672617599000,
+        reviewText: "Mükemmel ses kalitesi, kulaklığı çok beğendim.",
+        givenStars: 5,
+        reviewDislikes: 0,
+        reviewLikes: 10,
+      },
+      {
+        reviewId: 2,
+        productId: 1,
+        userId: 1002,
+        userName: "Mert Demir",
+        userImageUrl:
+          "https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-female-user-profile-vector-illustration-isolated-background-women-profile-sign-business-concept_157943-38866.jpg",
+        reviewDate: 1672703999000,
+        reviewText: "Gürültü engelleme özelliği güzel ama biraz pahalı.",
+        givenStars: 4,
+        reviewDislikes: 1,
+        reviewLikes: 5,
+        reviewReplies: [
+          {
+            reviewId: 1,
+            userId: 1003,
+            userName: "Ali Çelik",
+            userImageUrl:
+              "https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style",
+            givenStars: 5,
+            productId: 1,
+            reviewDate: 1672790399000,
+            reviewDislikes: 0,
+            reviewLikes: 2,
+            reviewText: "Fiyatına göre çok iyi bir ürün, tavsiye ederim.",
+            reviewReplies: [],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    productId: 2,
+    name: "Gaming Mouse",
+    description: "Ergonomic gaming mouse with adjustable DPI and RGB lighting.",
+    price: 59.99,
+    stock: 50,
+    category: "Accessories",
+    imageUrl: [
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+    ],
+    date: 1672531199000,
+    categoryId: 102,
+    parentCategoryId: 1,
+    averageStars: 4.5,
+    reviews: [
+      {
+        reviewId: 3,
+        productId: 2,
+        userId: 1003,
+        userName: "Ali Çelik",
+        userImageUrl: "https://example.com/users/ali.jpg",
+        reviewDate: 1672786799000,
+        reviewText: "Oyun için harika bir mouse, ışıklandırması da çok güzel.",
+        givenStars: 5,
+        reviewDislikes: 0,
+        reviewLikes: 8,
+        reviewReplies: [
+          {
+            reviewId: 1,
+            parentReviewId: 3,
+            userId: 1004,
+            userName: "Ayşe Öz",
+            userImageUrl:
+              "https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style",
+            givenStars: 4,
+            productId: 2,
+            reviewDate: 1672873199000,
+            reviewDislikes: 0,
+            reviewLikes: 3,
+            reviewText:
+              "Kablo kalitesi daha iyi olabilirdi ama genel olarak iyi.",
+          },
+          {
+            reviewId: 4,
+            productId: 2,
+            userId: 1004,
+            userName: "Ayşe Öz",
+            userImageUrl: "https://example.com/users/ayse.jpg",
+            reviewDate: 1672873199000,
+            reviewText:
+              "Kablo kalitesi daha iyi olabilirdi ama genel olarak iyi.",
+            givenStars: 4,
+            reviewDislikes: 0,
+            reviewLikes: 3,
+            parentReviewId: 3,
+            reviewReplies: [],
+          },
+        ],
+      },
+    ],
+  },
+];
+
+export const cartItems: cartItemType[] = [
+  {
+    product: {
+      productId: 1,
+      name: "Wireless Headphones",
+      description:
+        "Noise-cancelling over-ear headphones with Bluetooth connectivity.",
+      price: 149.99,
+      category: "Electronics",
+      stock: 25,
+      imageUrl: [
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      ],
+      date: 20250420,
+      discountPercentage: 10,
+      categoryId: 101,
+      parentCategoryId: 100,
+      averageStars: 4.5,
+    },
+    quantity: 1,
+  },
+  {
+    product: {
+      productId: 2,
+      name: "Ergonomic Office Chair",
+      description:
+        "Comfortable office chair with adjustable height and lumbar support.",
+      price: 239.99,
+      category: "Furniture",
+      stock: 8,
+      imageUrl: [
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      ],
+      date: 20250415,
+      discountPercentage: 15,
+      categoryId: 201,
+      parentCategoryId: 200,
+      averageStars: 4.7,
+    },
+    quantity: 2,
+  },
+  {
+    product: {
+      productId: 3,
+      name: "Smart LED Bulb",
+      description: "Energy-saving bulb controllable via smartphone app.",
+      price: 19.99,
+      category: "Home",
+      stock: 100,
+      imageUrl: [
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      ],
+      date: 20250422,
+      categoryId: 301,
+      parentCategoryId: 300,
+      averageStars: 4.2,
+    },
+    quantity: 5,
+  },
+  {
+    product: {
+      productId: 4,
+      name: "Gaming Mouse",
+      description:
+        "High-precision wired mouse with customizable DPI and RGB lighting.",
+      price: 59.99,
+      category: "Electronics",
+      stock: 45,
+      imageUrl: [
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+        "https://media.wired.com/photos/61bd571ff6b645152a4dc4ad/master/pass/Evolution-Luxury-Watches-Oris.jpg",
+      ],
+      date: 20250410,
+      discountPercentage: 5,
+      categoryId: 102,
+      parentCategoryId: 100,
+      averageStars: 4.6,
+    },
+    quantity: 1,
+  },
 ];

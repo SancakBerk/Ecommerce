@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import useEmblaCarousel from "embla-carousel-react";
 
 import Autoplay from "embla-carousel-autoplay";
-import { Product } from "@/app/types/homePageTypes";
+import { ProductType } from "@/app/types/homePageTypes";
 
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 import CardType2 from "@/components/CardType2";
@@ -15,7 +15,7 @@ import Card from "./Card";
 import { motion } from "motion/react";
 
 interface ProductsDisplayTemplateProps {
-  queryFn: () => Promise<serviceReturnType<Product[]>>;
+  queryFn: () => Promise<serviceReturnType<ProductType[]>>;
   queryKey?: string;
   titleTranslationKey: string;
   subLeftDownTextTranslationKey?: string;
@@ -24,6 +24,7 @@ interface ProductsDisplayTemplateProps {
   buttonOnClick?: () => void;
   displayProductNumber?: number;
   slideAble?: boolean;
+  translationPageKey?: string;
 }
 
 const ProductsDisplayTemplate: React.FC<ProductsDisplayTemplateProps> = ({
@@ -36,9 +37,10 @@ const ProductsDisplayTemplate: React.FC<ProductsDisplayTemplateProps> = ({
   displayProductNumber,
   queryKey = "products",
   slideAble = true,
+  translationPageKey = "homePage",
 }): JSX.Element => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const { data, isPending, isFetching } = useQuery({
+  const [products, setProducts] = useState<ProductType[]>([]);
+  const { data, isPending } = useQuery({
     queryKey: [queryKey],
     queryFn,
     staleTime: 1000 * 60 * 5,
@@ -46,15 +48,10 @@ const ProductsDisplayTemplate: React.FC<ProductsDisplayTemplateProps> = ({
 
   useEffect(() => {
     if (data?.success) {
-      console.log("data geldi", data.data);
-      if (isFetching) {
-        console.log("data isFetching sucess ", data.data);
-      }
-
       setProducts(data?.data || []);
     }
   }, [data]);
-  const t = useTranslations("homePage");
+  const t = useTranslations(translationPageKey);
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, dragFree: true, slidesToScroll: 3 },
     [Autoplay({ delay: 8000, stopOnInteraction: false })]
@@ -84,9 +81,6 @@ const ProductsDisplayTemplate: React.FC<ProductsDisplayTemplateProps> = ({
     emblaApi.on("reInit", updateButtons);
   }, [emblaApi, updateButtons]);
 
-  if (isFetching) {
-    console.log("fetching data", data);
-  }
   if (isPending) {
     return (
       <div className="w-full h-[50vh] flex items-center justify-center">
@@ -129,7 +123,7 @@ const ProductsDisplayTemplate: React.FC<ProductsDisplayTemplateProps> = ({
             <div className="embla__container  ">
               {products
                 .slice(0, displayProductNumber || 8)
-                .map((product: Product, index: number) => (
+                .map((product: ProductType, index: number) => (
                   <div key={index} className="embla__slide   ">
                     <CardType2 product={product} />
                   </div>
@@ -154,10 +148,10 @@ const ProductsDisplayTemplate: React.FC<ProductsDisplayTemplateProps> = ({
         </section>
       ) : (
         <div className="flex flex-wrap w-full justify-evenly items-center">
-          {products.slice(0, 8).map((product: Product, index: number) => (
+          {products.slice(0, 8).map((product: ProductType, index: number) => (
             <div key={index} className=" w-[23%]  p-4 flex flex-col">
               <Card
-                bgImage={product.imageUrl}
+                bgImage={product.imageUrl[0]}
                 discountPercentage={13}
                 width=" "
                 isVertical={true}

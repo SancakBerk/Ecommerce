@@ -55,5 +55,30 @@
     "subParagraph": "Explore our curated collection of home decor, furniture, and accessories that reflect your unique taste and elevate your living spaces.",
     "loadMore": "Load More",
     "loading": "Loading..."
+  },
+  "productDetailPage": {
+    "productDetailBreadcrumbListing": "Product List",
+    "productDetailBreadcrumbCurrent": "Sample Product Page",
+    "productTitle": "Double Bed and Nightstands",
+    "productPrice": "$54.98",
+    "productReviews": "32 reviews",
+    "productShortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.",
+    "productFeature1": "Lorem ipsum dolor sit amet, adipisci scing elit",
+    "productFeature2": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit",
+    "productFeature3": "Lorem ipsum dolor sit amet, consectetuer adipisci",
+    "productAddToCart": "Add to Cart",
+    "productBuyNow": "Buy Now",
+    "productShippingFree": "Free worldwide shipping on orders over $100",
+    "productDelivery": "Teslim süresi: 3-7 iş günü",
+    "productShippingLink": "Shipping & Returns",
+    "tabDescription": "Description",
+    "tabReviews": "Reviews",
+    "descriptionContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+    "descriptionList1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "descriptionList2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "descriptionList3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    "productLocale": "Language Selection",
+    "productId": "Product Code",
+    "similarProducts": "Similar Products"
   }
 }

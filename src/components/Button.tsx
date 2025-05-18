@@ -8,18 +8,33 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
   className?: string;
   width?: string;
+  lightMode?: boolean;
+  removeIcons?: boolean;
+  disableScaleAnimation?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({ text, width = "w-[200px]", ...props }) => {
+const Button: FC<ButtonProps> = ({
+  text,
+  width = "w-[200px]",
+  lightMode = false,
+  removeIcons = false,
+  disableScaleAnimation = false,
+  className = "",
+  ...props
+}) => {
   return (
     <motion.button
-      onClick={props.onClick}
-      className={`flex items-center justify-evenly bg-[#282828] text-white rounded-[64px] p-4 ${width} h-[4vh] hover:bg-[#3D3D3D] transition duration-300 ease-in-out `}
-      whileHover={{ scale: 1.1 }}
+      {...(props as React.ComponentPropsWithoutRef<typeof motion.button>)}
+      className={`flex items-center justify-evenly ${
+        lightMode
+          ? "bg-white text-[#282828] border-2 border-[#282828] font-bold"
+          : "bg-[#282828] text-white hover:bg-[#3D3D3D]"
+      } ${className} p-4 ${width} h-[4vh]  transition duration-300 ease-in-out `}
+      whileHover={disableScaleAnimation ? {} : { scale: 1.05 }}
       whileTap={{ scale: 0.5 }}
     >
       <p>{text}</p>
-      <FaAngleRight size={24} />
+      {removeIcons ? null : <FaAngleRight className="text-[1.5rem]" />}
     </motion.button>
   );
 };

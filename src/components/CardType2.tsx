@@ -12,7 +12,7 @@ const CardType2: React.FC<CardType2Props> = ({ product }): JSX.Element => {
   return (
     <div>
       <Card
-        bgImage={product.imageUrl}
+        bgImage={product.imageUrl[0]}
         discountPercentage={13}
         width=" "
         isVertical={true}

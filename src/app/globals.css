@@ -35,7 +35,7 @@ input:focus {
   margin: auto;
   --slide-height: 50rem;
   --slide-spacing: 1rem;
-  --slide-size: 20%;
+  --slide-size: 25%;
 }
 .embla__viewport {
   overflow: hidden;
@@ -54,10 +54,6 @@ input:focus {
 
 ::-webkit-scrollbar {
   width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f0fdf4; /* çok açık yeşil */
 }
 
 ::-webkit-scrollbar-thumb {
