@@ -15,17 +15,6 @@ import { createCategory, getAllProducts } from "@/services/productService";
 import { additionalDummyCategories } from "@/utils/constants";
 
 const HomePage = (): JSX.Element => {
-  const createDummyData = async () => {
-    for (let index = 0; index < additionalDummyCategories.length; index++) {
-      await createCategory(
-        additionalDummyCategories[index],
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcmtzYW5jYWs2MUBob3RtYWlsLmNvbSIsImlhdCI6MTc0NzgzMDAwMCwiZXhwIjoxNzQ3ODMzNjAwfQ.4gNf8-49HSKlk5OLvWHTwW84luHeGLgcmTnUK5Cxqqs"
-      ).then((res) => {
-        console.log("res", res);
-      });
-    }
-  };
-
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -44,7 +33,7 @@ const HomePage = (): JSX.Element => {
       />
       <Navbar />
       <HeaderContainer />
-      <button onClick={createDummyData}>10 Ürün Oluştur</button>
+      {/* <button onClick={createDummyData}>10 Ürün Oluştur</button> */}
       <ProductsDisplayTemplate
         queryFn={getAllProducts}
         titleTranslationKey={"featuredProducts"}
