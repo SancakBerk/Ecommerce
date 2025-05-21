@@ -11,7 +11,7 @@ import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions";
 import Footer from "@/components/Footer";
 import Proportions from "./components/Propotions";
 import ProductsDisplayTemplate from "@/components/ProductDisplayTemplate";
-import { getProducts } from "@/services/productService";
+import { getAllProducts } from "@/services/productService";
 
 const HomePage = (): JSX.Element => {
   const { scrollYProgress } = useScroll();
@@ -32,8 +32,9 @@ const HomePage = (): JSX.Element => {
       />
       <Navbar />
       <HeaderContainer />
+      {/* <button onClick={createDummyData}>10 Ürün Oluştur</button> */}
       <ProductsDisplayTemplate
-        queryFn={getProducts}
+        queryFn={getAllProducts}
         titleTranslationKey={"featuredProducts"}
         subRightTextTranslationKey={"featuredProductsSubText"}
         buttonOnClick={() => {}}
@@ -42,7 +43,7 @@ const HomePage = (): JSX.Element => {
       />
       <Categories />
       <ProductsDisplayTemplate
-        queryFn={getProducts}
+        queryFn={getAllProducts}
         queryKey="products"
         titleTranslationKey={"mostPopularProducts"}
         subLeftDownTextTranslationKey={"mostPopularProductsSubText"}

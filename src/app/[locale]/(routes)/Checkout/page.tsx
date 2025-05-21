@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { JSX, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { personalBillingConfirmation } from "@/utils/formatSchemas";
-import { cartItemType } from "@/app/types/globalTypes";
+import { cartItemType } from "@/types/globalTypes";
 import Footer from "@/components/Footer";
 import { calculateTotalPrice } from "@/utils/funcitons";
 import Navbar from "@/components/Navbar";

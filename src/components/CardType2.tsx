@@ -1,4 +1,4 @@
-import { Product } from "@/app/types/homePageTypes";
+import { Product } from "@/types/homePageTypes";
 import Card from "./Card";
 import { JSX } from "react";
 import { motion } from "motion/react";

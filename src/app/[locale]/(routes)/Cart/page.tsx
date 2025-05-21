@@ -1,23 +1,27 @@
 "use client";
-import { cartItemType } from "@/app/types/globalTypes";
+import { cartItemType } from "@/types/globalTypes";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
 import ProductsDisplayTemplate from "@/components/ProductDisplayTemplate";
 import QuantityCounter from "@/components/QuantityCounter";
-import { getCartByUserId, getProducts } from "@/services/productService";
+import { getCartItemsByUser, getAllProducts } from "@/services/productService";
 import { calculateTotalPrice } from "@/utils/funcitons";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 
 const CartPage = () => {
   const [cartData, setCartData] = useState<cartItemType[]>([]);
-  const router = useRouter();
+  // const router = useRouter();
   const { data } = useQuery({
     queryKey: ["cart"],
-    queryFn: () => getCartByUserId(1),
+    queryFn: () =>
+      getCartItemsByUser(
+        1,
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcmtzYW5jYWs2MUBob3RtYWlsLmNvbSIsImlhdCI6MTc0Nzc0NTM3OCwiZXhwIjoxNzQ3NzQ4OTc4fQ.0ffaLx7wLI74EmKfxrMneIARASBnW_W145k9LS44UgA"
+      ),
   });
 
   const handleQuantityChange = (productId: number, quantity: number) => {
@@ -160,7 +164,7 @@ const CartPage = () => {
             disableScaleAnimation
             className=" rounded-b-2xl  h-[8vh] "
             onClick={() => {
-              router.push("/Checkout");
+              // router.push("/Checkout");
             }}
             removeIcons
           />
@@ -169,7 +173,7 @@ const CartPage = () => {
       <ProductsDisplayTemplate
         translationPageKey="productDetailPage"
         titleTranslationKey="similarProducts"
-        queryFn={getProducts}
+        queryFn={getAllProducts}
         queryKey="product"
       />
       <Footer />

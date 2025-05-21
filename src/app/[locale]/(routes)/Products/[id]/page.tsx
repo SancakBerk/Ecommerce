@@ -1,5 +1,5 @@
 "use client";
-import { ProductDetailsType } from "@/app/types/homePageTypes";
+import { productDetailsType } from "@/types/globalTypes";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ProductsDisplayTemplate from "@/components/ProductDisplayTemplate";
@@ -19,7 +19,7 @@ import { FaStarHalf, FaStar } from "react-icons/fa";
 import { use } from "react";
 
 const ProductDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
-  const [productData, setproductData] = useState<ProductDetailsType>();
+  const [productData, setproductData] = useState<productDetailsType>();
   const [productCounter, setproductCounter] = useState<number>(1);
   const [bigPictureUrl, setBigPictureUrl] = useState<string>(
     productData ? productData.imageUrl[0] : ""
@@ -49,7 +49,7 @@ const ProductDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
 
   useEffect(() => {
     if (data?.success && data.data) {
-      setproductData(data.data as ProductDetailsType);
+      setproductData(data.data as productDetailsType);
       setBigPictureUrl(data.data.imageUrl[0]);
     }
   }, [data]);

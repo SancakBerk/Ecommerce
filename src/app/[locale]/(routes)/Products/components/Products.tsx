@@ -1,5 +1,5 @@
 "use client";
-import { Category, priceRangeType } from "@/app/types/globalTypes";
+import { Category, priceRangeType } from "@/types/globalTypes";
 import { getCategories, getProducts } from "@/services/productService";
 import { priceRanges } from "@/utils/constants";
 import { useQuery } from "@tanstack/react-query";
@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
-import { ProductType } from "@/app/types/homePageTypes";
+import { ProductType } from "@/types/homePageTypes";
 import Input from "@/components/Input";
 import CardType2 from "@/components/CardType2";
 import Button from "@/components/Button";
