@@ -1,5 +1,5 @@
 "use client";
-import { JSX, useState } from "react";
+import { JSX } from "react";
 import { useRouter } from "next/navigation";
 import { FaBagShopping } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
@@ -7,10 +7,11 @@ import Image from "next/image";
 import HomePageIcon from "../../public/logo-70.png";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa6";
+
 import HomePageIconSvg from "../../public/logo-70.svg";
 import Link from "next/link";
 import { useLocale } from "next-intl";
+import { verifyToken } from "@/utils/funcitons";
 
 interface NavbarProps extends React.HTMLProps<HTMLDivElement> {
   darkText?: boolean;
@@ -18,14 +19,8 @@ interface NavbarProps extends React.HTMLProps<HTMLDivElement> {
 
 const Navbar: React.FC<NavbarProps> = ({ darkText = false }): JSX.Element => {
   const locale = useLocale();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const router = useRouter();
   const t = useTranslations("homePage");
-
-  const handleNavigation = (category: string) => {
-    setDropdownOpen(false);
-    router.push(`/category/${category}`);
-  };
 
   return (
     <div className="w-full h-[5vh] flex justify-center items-center z-10 pt-5 relative  ">
@@ -55,7 +50,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkText = false }): JSX.Element => {
           </motion.button>
 
           {/* Dropdown */}
-          <div className="relative">
+          {/* <div className="relative">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="bg-transparent px-2 py-1 flex gap-2 justify-center items-center"
@@ -84,18 +79,39 @@ const Navbar: React.FC<NavbarProps> = ({ darkText = false }): JSX.Element => {
                 </button>
               </div>
             )}
-          </div>
-
+          </div> */}
+          <motion.button
+            type="button"
+            onClick={() => {
+              router.push("/Products");
+            }}
+          >
+            {t("products")}
+          </motion.button>
           <motion.button type="button">{t("contactUs")}</motion.button>
           <motion.button type="button">{t("blog")}</motion.button>
         </div>
 
         <div className="w-1/5 flex justify-center items-center gap-x-6">
-          <IoPerson
-            className={`  ${
-              darkText ? "text-black" : "text-white"
-            } cursor-pointer`}
-          />
+          <motion.button
+            type="button"
+            onClick={() => {
+              verifyToken().then((res: boolean) => {
+                if (res) {
+                  router.push("/Profile");
+                } else {
+                  router.push("/Login");
+                }
+              });
+            }}
+          >
+            <IoPerson
+              className={`  ${
+                darkText ? "text-black" : "text-white"
+              } cursor-pointer`}
+            />
+          </motion.button>
+
           <FaBagShopping
             onClick={() => router.push("/Cart")}
             className={`  ${

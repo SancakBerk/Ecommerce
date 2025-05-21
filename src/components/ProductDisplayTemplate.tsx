@@ -13,6 +13,7 @@ import { serviceReturnType } from "@/types/globalTypes";
 import Button from "./Button";
 import Card from "./Card";
 import { motion } from "motion/react";
+import { getRandomItems } from "@/utils/funcitons";
 
 interface ProductsDisplayTemplateProps {
   queryFn: () => Promise<serviceReturnType<productType[]>>;
@@ -22,7 +23,7 @@ interface ProductsDisplayTemplateProps {
   subRightTextTranslationKey?: string;
   rightSideButtonTextTranslationKey?: string;
   buttonOnClick?: () => void;
-  displayProductNumber?: number;  
+  displayProductNumber?: number;
   slideAble?: boolean;
   translationPageKey?: string;
 }
@@ -121,13 +122,13 @@ const ProductsDisplayTemplate: React.FC<ProductsDisplayTemplateProps> = ({
         <section className="relative    ">
           <div className="embla  " ref={emblaRef}>
             <div className="embla__container  ">
-              {products
-                .slice(0, displayProductNumber || 8)
-                .map((product: productType, index: number) => (
+              {getRandomItems(products, displayProductNumber || 8).map(
+                (product: productType, index: number) => (
                   <div key={index} className="embla__slide   ">
                     <CardType2 product={product} />
                   </div>
-                ))}
+                )
+              )}
             </div>
           </div>
 
@@ -148,57 +149,60 @@ const ProductsDisplayTemplate: React.FC<ProductsDisplayTemplateProps> = ({
         </section>
       ) : (
         <div className="flex flex-wrap w-full justify-evenly items-center">
-          {products.slice(0, 8).map((product: productType, index: number) => (
-            <div key={index} className=" w-[23%]  p-4 flex flex-col">
-              <Card
-                bgImage={product.imageUrl[0]}
-                discountPercentage={13}
-                width=" "
-                isVertical={true}
-              />
-              <p className=" text-[#404040] text-2xl "> {product.name} </p>
-              <div>
-                {" "}
-                {product.discountPercentage != undefined ? (
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-x-4 h-full">
-                      <p className=" line-through text-[#404040] ">
+          {getRandomItems(products, 8).map(
+            (product: productType, index: number) => (
+              <div key={index} className=" w-[23%]  p-4 flex flex-col">
+                <Card
+                  data={product}
+                  discountPercentage={13}
+                  width=" "
+                  isVertical={true}
+                />
+                <p className=" text-[#404040] text-2xl "> {product.name} </p>
+                <div>
+                  {" "}
+                  {product.discountPercentage != undefined ? (
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-x-4 h-full">
+                        <p className=" line-through text-[#404040] ">
+                          {" "}
+                          {product.price} TL{" "}
+                        </p>
+                        <p>
+                          {" "}
+                          {(
+                            (product.price *
+                              (100 - product.discountPercentage)) /
+                            100
+                          ).toFixed(2)}
+                          {" TL"}
+                        </p>
+                      </div>
+                      <motion.button
+                        className="rounded-full border  bg-white border-black p-2 aspect-square h-full  flex justify-center items-center"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                      >
                         {" "}
-                        {product.price} TL{" "}
-                      </p>
-                      <p>
-                        {" "}
-                        {(
-                          (product.price * (100 - product.discountPercentage)) /
-                          100
-                        ).toFixed(2)}
-                        {" TL"}
-                      </p>
+                        +
+                      </motion.button>
                     </div>
-                    <motion.button
-                      className="rounded-full border  bg-white border-black p-2 aspect-square h-full  flex justify-center items-center"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      {" "}
-                      +
-                    </motion.button>
-                  </div>
-                ) : (
-                  <div className="flex justify-between items-center">
-                    <p className="  ">
-                      {" "}
-                      {product.price} {"TL"}
-                    </p>
-                    <motion.button className="rounded-full border bg-white border-black p-2 aspect-square h-full  flex justify-center items-center">
-                      {" "}
-                      +
-                    </motion.button>
-                  </div>
-                )}{" "}
+                  ) : (
+                    <div className="flex justify-between items-center">
+                      <p className="  ">
+                        {" "}
+                        {product.price} {"TL"}
+                      </p>
+                      <motion.button className="rounded-full border bg-white border-black p-2 aspect-square h-full  flex justify-center items-center">
+                        {" "}
+                        +
+                      </motion.button>
+                    </div>
+                  )}{" "}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
       )}
     </div>

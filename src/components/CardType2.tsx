@@ -1,18 +1,18 @@
-import { Product } from "@/types/homePageTypes";
+import { productType } from "@/types/globalTypes";
 import Card from "./Card";
 import { JSX } from "react";
 import { motion } from "motion/react";
 import { LuCirclePlus } from "react-icons/lu";
 
 interface CardType2Props {
-  product: Product;
+  product: productType;
 }
 
 const CardType2: React.FC<CardType2Props> = ({ product }): JSX.Element => {
   return (
     <div>
       <Card
-        bgImage={product.imageUrl[0]}
+        data={product}
         discountPercentage={13}
         width=" "
         isVertical={true}

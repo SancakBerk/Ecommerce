@@ -7,11 +7,10 @@ import {
   orderType,
   ongoingItemType,
   serviceReturnType,
-} from "../types/globalTypes"; // Types dosyanızın yolu
+} from "../types/globalTypes";
 
 const API_BASE_URL = "http://localhost:3005";
 
-// Genel fetch fonksiyonu (JWT token ile)
 const fetchWithAuth = async <T>(
   endpoint: string,
   method: string,
@@ -100,18 +99,18 @@ export const getAllProducts = async (): Promise<
 };
 
 export const getProductById = async (
-  documentId: string
+  productId: string
 ): Promise<serviceReturnType<productType>> => {
-  return fetchWithAuth<productType>(`products/${documentId}`, "GET");
+  return fetchWithAuth<productType>(`products/${productId}`, "GET");
 };
 
 export const updateProduct = async (
-  documentId: string,
+  productId: string,
   product: Partial<productType>,
   token: string
 ): Promise<serviceReturnType<productType>> => {
   return fetchWithAuth<productType>(
-    `products/${documentId}`,
+    `products/${productId}`,
     "PUT",
     token,
     product
@@ -119,10 +118,10 @@ export const updateProduct = async (
 };
 
 export const deleteProduct = async (
-  documentId: string,
+  productId: string,
   token: string
 ): Promise<serviceReturnType<void>> => {
-  return fetchWithAuth<void>(`products/${documentId}`, "DELETE", token);
+  return fetchWithAuth<void>(`products/${productId}`, "DELETE", token);
 };
 
 // Reviews Service
@@ -143,9 +142,12 @@ export const getReviewsByProduct = async (
 };
 
 export const getReviewById = async (
-  documentId: string
-): Promise<serviceReturnType<productReviewType>> => {
-  return fetchWithAuth<productReviewType>(`reviews/${documentId}`, "GET");
+  productId: string
+): Promise<serviceReturnType<productReviewType[]>> => {
+  return fetchWithAuth<productReviewType[]>(
+    `reviews/product/${productId}`,
+    "GET"
+  );
 };
 
 export const updateReview = async (
@@ -249,8 +251,8 @@ export const deleteOngoingItem = async (
 export const createCategory = async (
   category: categoryType,
   token: string
-): Promise<serviceReturnType<categoryType>> => {
-  return fetchWithAuth<categoryType>("categories", "POST", token, category);
+): Promise<serviceReturnType<categoryType[]>> => {
+  return fetchWithAuth<categoryType[]>("categories", "POST", token, category);
 };
 
 export const getAllCategories = async (): Promise<

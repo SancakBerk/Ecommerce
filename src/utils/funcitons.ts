@@ -1,4 +1,4 @@
-import { cartItemType } from "@/types/globalTypes";
+import { cartItemType, categoryType, productType } from "@/types/globalTypes";
 import axios from "axios";
 const shippingCost = 100; // Example shipping cost
 
@@ -34,9 +34,7 @@ export const getRandomItems = <T>(list: T[], count: number): T[] => {
     throw new Error("Geçersiz giriş: İstenilen veri miktarı negatif olamaz.");
   }
   if (count > list.length) {
-    throw new Error(
-      `Geçersiz giriş: İstenilen veri miktarı (${count}) listedeki eleman sayısından (${list.length}) fazla olamaz.`
-    );
+    return list;
   }
 
   // Liste kopyasını oluştur (orijinal listeyi değiştirmemek için)
@@ -51,7 +49,8 @@ export const getRandomItems = <T>(list: T[], count: number): T[] => {
   return shuffled.slice(0, count);
 };
 
-export const verifyToken = async (token: string): Promise<boolean> => {
+export const verifyToken = async (): Promise<boolean> => {
+  const token = getToken();
   try {
     const res = await axios.get("http://localhost:3005/auth/verify-token", {
       headers: {
@@ -62,4 +61,15 @@ export const verifyToken = async (token: string): Promise<boolean> => {
   } catch {
     return false;
   }
+};
+export const isProduct = (
+  data: productType | categoryType | undefined
+): data is productType => {
+  return !!data && "productId" in data;
+};
+
+export const isCategory = (
+  data: productType | categoryType | undefined
+): data is categoryType => {
+  return !!data && "categoryId" in data;
 };

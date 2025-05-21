@@ -93,3 +93,8 @@ export type serviceReturnType<T = unknown> = {
 export type productDetailsType = productType & {
   reviews: productReviewType[];
 };
+export type priceRangeType = {
+  from: number;
+  to: number;
+  currency: string;
+};

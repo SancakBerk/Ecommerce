@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useQuery } from "@tanstack/react-query";
 import { getAllCategories } from "@/services/productService";
 import { categoryType } from "@/types/globalTypes";
+import { getRandomItems } from "@/utils/funcitons";
 const Categories = (): JSX.Element => {
   const { data: allCategoryServiceReturn } = useQuery({
     queryKey: ["categories"],
@@ -14,7 +15,9 @@ const Categories = (): JSX.Element => {
   const t = useTranslations("homePage");
   useEffect(() => {
     if (allCategoryServiceReturn?.success && allCategoryServiceReturn.data) {
-      setCategoriesData(allCategoryServiceReturn.data.splice(0, 4));
+      setCategoriesData(
+        getRandomItems(allCategoryServiceReturn.data, 4) as categoryType[]
+      );
     }
   }, [allCategoryServiceReturn]);
   return (
@@ -33,32 +36,20 @@ const Categories = (): JSX.Element => {
         <div>Data Fetching.. </div>
       ) : (
         <div className="flex h-1/2 justify-center items-center gap-4  ">
-          <Card
-            animateDuration={2}
-            bgImage={categoriesData[0].imageUrl}
-            width="h-full"
-            name={categoriesData[0].name}
-          />
+          <Card animateDuration={2} data={categoriesData[0]} width="h-full" />
           <div className="flex justify-center items-center flex-col gap-4">
             <Card
               animateDuration={2}
-              bgImage={categoriesData[1].imageUrl}
+              data={categoriesData[1]}
               width="w-[400px]"
-              name={categoriesData[1].name}
             />
             <Card
               animateDuration={2}
-              bgImage={categoriesData[2].imageUrl}
+              data={categoriesData[2]}
               width="w-[400px]"
-              name={categoriesData[2].name}
             />
           </div>
-          <Card
-            animateDuration={2}
-            bgImage={categoriesData[3].imageUrl}
-            width="h-full"
-            name={categoriesData[3].name}
-          />
+          <Card animateDuration={2} data={categoriesData[3]} width="h-full" />
         </div>
       )}
     </div>

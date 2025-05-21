@@ -1,19 +1,18 @@
 "use client";
-import { Category, priceRangeType } from "@/types/globalTypes";
-import { getCategories, getProducts } from "@/services/productService";
-import { priceRanges } from "@/utils/constants";
+import { categoryType, priceRangeType, productType } from "@/types/globalTypes";
+import { getAllCategories, getAllProducts } from "@/services/productService";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
-import { ProductType } from "@/types/homePageTypes";
 import Input from "@/components/Input";
 import CardType2 from "@/components/CardType2";
 import Button from "@/components/Button";
 import ProductProgressBar from "../../Home/components/ProductProgressBar";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useLocale } from "next-intl";
+import { priceRanges } from "@/utils/constants";
 
 const Products = () => {
   const locale = useLocale();
@@ -23,34 +22,34 @@ const Products = () => {
 
   const { data: categoriesData, isPending: categoriesIsPending } = useQuery({
     queryKey: ["categories"],
-    queryFn: getCategories,
+    queryFn: getAllCategories,
   });
 
   const { data: productData, isPending: productIsPending } = useQuery({
     queryKey: ["products"],
-    queryFn: getProducts,
+    queryFn: () => getAllProducts(),
   });
 
   const searchParams = useSearchParams();
   const categoryIdFromUrl = searchParams.get("categoryId");
 
-  const [categories, setCategories] = useState<Category[]>([]);
+  const [categories, setCategories] = useState<categoryType[]>([]);
   const [openCategoryIndex, setOpenCategoryIndex] = useState<number>();
   const [loadMoreValue, setLoadMoreValue] = useState<number>(1);
-  const [products, setProducts] = useState<ProductType[]>([]);
-  const [paginatedProducts, setPaginatedProducts] = useState<ProductType[]>([]);
+  const [products, setProducts] = useState<productType[]>([]);
+  const [paginatedProducts, setPaginatedProducts] = useState<productType[]>([]);
   const [selectedPriceRanges, setSelectedPriceRanges] = useState<
     priceRangeType[]
   >([]);
 
-  const handleCategoryFilterClick = (eachCategory: Category) => {
+  const handleCategoryFilterClick = (eachCategory: categoryType) => {
     const params = new URLSearchParams({
-      categoryId: eachCategory.id.toString(),
+      categoryId: eachCategory.categoryId.toString(),
     });
     router.push(`/${locale}/Products?${params.toString()}`);
   };
 
-  const handleProductClick = (clickedProduct: ProductType) => {
+  const handleProductClick = (clickedProduct: productType) => {
     router.push(`/${locale}/Products/${clickedProduct.productId}`);
   };
 
@@ -81,11 +80,11 @@ const Products = () => {
 
   useEffect(() => {
     if (categoriesData?.data) {
-      setCategories(categoriesData.data as Category[]);
+      setCategories(categoriesData.data as categoryType[]);
     }
 
     if (productData?.data) {
-      let allProducts = productData.data as ProductType[];
+      let allProducts = productData.data as productType[];
 
       if (categoryIdFromUrl) {
         allProducts = allProducts.filter(
@@ -140,7 +139,7 @@ const Products = () => {
             </h1>
           </div>
           {categories.map((eachCategory, index) => (
-            <div key={eachCategory.id} className="flex flex-col">
+            <div key={eachCategory.categoryId} className="flex flex-col">
               <div
                 onClick={() => {
                   setOpenCategoryIndex(
@@ -180,7 +179,7 @@ const Products = () => {
                   >
                     {eachCategory.subCategories.map((childCategory) => (
                       <h1
-                        key={childCategory.id}
+                        key={childCategory.categoryId}
                         className="text-sm text-414141 cursor-pointer hover:underline"
                         onClick={(e) => {
                           e.stopPropagation();
@@ -254,7 +253,7 @@ const Products = () => {
           </p>
           <p className=" text-[#949494] ">{t("subParagraph")}</p>
         </div>
-        <div className="flex flex-wrap w-full justify-between gap-x-[2vh] gap-y-[6vh]">
+        <div className="flex flex-wrap w-full justify-evenly gap-x-[2vh] gap-y-[6vh]">
           {paginatedProducts.map((eachProduct) => (
             <div
               key={eachProduct.productId}

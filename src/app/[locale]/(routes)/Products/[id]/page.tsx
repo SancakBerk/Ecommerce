@@ -1,9 +1,17 @@
 "use client";
-import { productDetailsType } from "@/types/globalTypes";
+import {
+  productDetailsType,
+  productReviewType,
+  productType,
+} from "@/types/globalTypes";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ProductsDisplayTemplate from "@/components/ProductDisplayTemplate";
-import { getProducts, getProductById } from "@/services/productService";
+import {
+  getAllProducts,
+  getProductById,
+  getReviewById,
+} from "@/services/productService";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -17,21 +25,27 @@ import { GiDeliveryDrone } from "react-icons/gi";
 import { motion } from "framer-motion";
 import { FaStarHalf, FaStar } from "react-icons/fa";
 import { use } from "react";
+import QuantityCounter from "@/components/QuantityCounter";
 
 const ProductDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
-  const [productData, setproductData] = useState<productDetailsType>();
-  const [productCounter, setproductCounter] = useState<number>(1);
+  const [productData, setproductData] = useState<productType>();
+  const [quantity, setQuantity] = useState<number>(1);
   const [bigPictureUrl, setBigPictureUrl] = useState<string>(
     productData ? productData.imageUrl[0] : ""
   );
+  const [productReviews, setProductReviews] = useState<productReviewType[]>();
   const [selectedTabIndex, setselectedTabIndex] = useState<number>(0);
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const { id } = use(params);
   const t = useTranslations("productDetailPage");
-  const { data, isPending } = useQuery({
+  const { data: productDataResponse, isPending } = useQuery({
     queryKey: ["productById", id],
-    queryFn: () => getProductById(parseInt(id)),
+    queryFn: () => getProductById(id),
+  });
+  const { data: productReviewResponse } = useQuery({
+    queryKey: ["productReviews", id],
+    queryFn: () => getReviewById(id),
   });
 
   const returnStars = (stars: number): JSX.Element => {
@@ -46,15 +60,21 @@ const ProductDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
       </div>
     );
   };
+  const onQuantityChange = (newQuantity: number) => {
+    setQuantity(newQuantity);
+  };
 
   useEffect(() => {
-    if (data?.success && data.data) {
-      setproductData(data.data as productDetailsType);
-      setBigPictureUrl(data.data.imageUrl[0]);
+    if (productDataResponse?.success && productDataResponse.data) {
+      setproductData(productDataResponse.data as productDetailsType);
+      setBigPictureUrl(productDataResponse.data.imageUrl[0]);
     }
-  }, [data]);
+    if (productReviewResponse?.success && productReviewResponse.data) {
+      setProductReviews(productReviewResponse.data as productReviewType[]);
+    }
+  }, [productDataResponse, productReviewResponse]);
 
-  if (isPending || !productData) {
+  if (isPending || !productData || !productReviews) {
     return (
       <div className="w-screen h-screen flex justify-center items-center">
         Loading...
@@ -124,12 +144,17 @@ const ProductDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
                 <CiHeart className="text-[2vw] hover:text-red-400 cursor-pointer " />
               </motion.button>
             </div>
-            <div className=" flex gap-x-[1vw]   text-[1vw]">
-              <p> ${productData.price} </p>
+            <div className=" flex gap-x-[0.5vw]   text-[1vw] items-center">
+              <p className=""> ${(productData.price * quantity).toFixed(2)} </p>
+              {quantity > 1 && (
+                <p className="text-7B7B7B text-base">
+                  ({quantity} x {productData.price} TL)
+                </p>
+              )}
               <div className="border-l-[#A6A6A6] border-l-2 flex pl-[1vw] justify-center  items-center">
                 {returnStars(productData.averageStars)}{" "}
                 <p className="text-414141 pl-[1vw] ">
-                  {`(${productData.reviews.length} review)`}{" "}
+                  {`(${productReviews.length} review)`}{" "}
                 </p>
               </div>
             </div>
@@ -141,29 +166,11 @@ const ProductDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
             </div>
             <div className="flex flex-col gap-[2vh]">
               <div className="flex justify-between items-center h-full gap-x-[1vw] ">
-                <div className=" flex h-full  justify-evenly  w-[15%] border-[#D7D7D7] border-2   items-center rounded-3xl">
-                  <button
-                    className="h-[3vh] w-[1vw]  "
-                    onClick={() => {
-                      if (productCounter > 1) {
-                        setproductCounter(productCounter - 1);
-                      }
-                    }}
-                  >
-                    <p>-</p>
-                  </button>
-                  {productCounter}
-                  <button
-                    className="h-[3vh] w-[1vw]"
-                    onClick={() => {
-                      if (productCounter < productData.stock) {
-                        setproductCounter(productCounter + 1);
-                      }
-                    }}
-                  >
-                    <p>+</p>
-                  </button>
-                </div>
+                <QuantityCounter
+                  onQuantityChange={onQuantityChange}
+                  defaultValue={quantity}
+                  stock={productData.stock}
+                />
                 <Button
                   text={t("productAddToCart")}
                   removeIcons
@@ -215,7 +222,7 @@ const ProductDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
 
         {selectedTabIndex == 1 ? (
           <div className="flex flex-col gap-[2vh] h-full  mt-[2vh] w-full">
-            {productData.reviews.map((review, index) => (
+            {productReviews.map((review, index) => (
               <div
                 className="flex  items-center text-414141 border-2 border-[#D3D3D3]  p-[2vh] rounded-2xl relative  w-full"
                 key={index}
@@ -308,7 +315,7 @@ const ProductDetailPage = ({ params }: { params: Promise<{ id: string }> }) => {
       <ProductsDisplayTemplate
         translationPageKey="productDetailPage"
         titleTranslationKey="similarProducts"
-        queryFn={getProducts}
+        queryFn={getAllProducts}
         queryKey="product"
         displayProductNumber={4}
       />
