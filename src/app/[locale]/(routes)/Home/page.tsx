@@ -11,8 +11,7 @@ import FrequentlyAskedQuestions from "./components/FrequentlyAskedQuestions";
 import Footer from "@/components/Footer";
 import Proportions from "./components/Propotions";
 import ProductsDisplayTemplate from "@/components/ProductDisplayTemplate";
-import { createCategory, getAllProducts } from "@/services/productService";
-import { additionalDummyCategories } from "@/utils/constants";
+import { getAllProducts } from "@/services/productService";
 
 const HomePage = (): JSX.Element => {
   const { scrollYProgress } = useScroll();

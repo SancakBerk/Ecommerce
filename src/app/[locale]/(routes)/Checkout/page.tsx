@@ -2,21 +2,29 @@
 
 import Button from "@/components/Button";
 import Input from "@/components/Input";
-import { getCartByUserId } from "@/services/productService";
+import { getCartItemsByUser } from "@/services/productService";
 import { useQuery } from "@tanstack/react-query";
 import { JSX, useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { personalBillingConfirmation } from "@/utils/formatSchemas";
 import { cartItemType } from "@/types/globalTypes";
 import Footer from "@/components/Footer";
-import { calculateTotalPrice } from "@/utils/funcitons";
+import {
+  calculateTotalPrice,
+  getTokenFromLocalStorage,
+  getUserIdFromLocalStorage,
+} from "@/utils/funcitons";
 import Navbar from "@/components/Navbar";
 
 const Checkout = (): JSX.Element => {
   const [cartData, setCartData] = useState<cartItemType[]>([]);
   const { data, isPending } = useQuery({
     queryKey: ["cart"],
-    queryFn: () => getCartByUserId(1),
+    queryFn: () =>
+      getCartItemsByUser(
+        getUserIdFromLocalStorage(),
+        getTokenFromLocalStorage()
+      ),
   });
 
   const renderInputElementCustom = (id: string): JSX.Element => {

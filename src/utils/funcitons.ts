@@ -73,3 +73,19 @@ export const isCategory = (
 ): data is categoryType => {
   return !!data && "categoryId" in data;
 };
+
+export const getUserIdFromLocalStorage = (): string => {
+  let userId = localStorage.getItem("userId");
+  if (!userId) {
+    userId = ""; // veya uygun bir varsayılan değer
+  }
+  return userId;
+};
+
+export const getTokenFromLocalStorage = (): string => {
+  let token = localStorage.getItem("token");
+  if (!token) {
+    token = "";
+  }
+  return token;
+};

@@ -50,10 +50,9 @@ const fetchWithAuth = async <T>(
 
 // Users Service
 export const createUser = async (
-  user: userType,
-  token: string
+  user: userType
 ): Promise<serviceReturnType<userType>> => {
-  return fetchWithAuth<userType>("users", "POST", token, user);
+  return fetchWithAuth<userType>("users", "POST", undefined, user); // Token kaldırıldı
 };
 
 export const getAllUsers = async (
@@ -296,7 +295,7 @@ export const createCartItem = async (
 };
 
 export const getCartItemsByUser = async (
-  userId: number,
+  userId: string,
   token: string
 ): Promise<serviceReturnType<cartItemType[]>> => {
   return fetchWithAuth<cartItemType[]>(

@@ -12,6 +12,7 @@ interface cardProps {
   className?: string;
   animated?: boolean;
   animateDuration?: number;
+  displayName?: boolean;
 }
 
 const Card: React.FC<cardProps> = ({
@@ -20,6 +21,7 @@ const Card: React.FC<cardProps> = ({
   discountPercentage,
   data,
   className,
+  displayName = true,
   animated = true,
   animateDuration,
 }) => {
@@ -67,7 +69,7 @@ const Card: React.FC<cardProps> = ({
             <p className="text-white">- {discountPercentage} %</p>
           </div>
         )}
-        {data?.name && (
+        {displayName && data?.name && (
           <div className="absolute bottom-[1%] left-[4%] h-[auto] text-black  text-[20px]">
             {data.name}
           </div>

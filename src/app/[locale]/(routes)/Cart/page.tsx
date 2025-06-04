@@ -5,7 +5,11 @@ import Footer from "@/components/Footer";
 import ProductsDisplayTemplate from "@/components/ProductDisplayTemplate";
 import QuantityCounter from "@/components/QuantityCounter";
 import { getCartItemsByUser, getAllProducts } from "@/services/productService";
-import { calculateTotalPrice } from "@/utils/funcitons";
+import {
+  calculateTotalPrice,
+  getTokenFromLocalStorage,
+  getUserIdFromLocalStorage,
+} from "@/utils/funcitons";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 // import { useRouter } from "next/navigation";
@@ -19,8 +23,8 @@ const CartPage = () => {
     queryKey: ["cart"],
     queryFn: () =>
       getCartItemsByUser(
-        1,
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlcmtzYW5jYWs2MUBob3RtYWlsLmNvbSIsImlhdCI6MTc0Nzc0NTM3OCwiZXhwIjoxNzQ3NzQ4OTc4fQ.0ffaLx7wLI74EmKfxrMneIARASBnW_W145k9LS44UgA"
+        getUserIdFromLocalStorage(),
+        getTokenFromLocalStorage()
       ),
   });
 

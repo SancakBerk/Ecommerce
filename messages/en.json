@@ -80,5 +80,20 @@
     "productLocale": "Language Selection",
     "productId": "Product Code",
     "similarProducts": "Similar Products"
+  },
+  "loginAndSignUp": {
+    "login": "Login",
+    "signUp": "Sign Up",
+    "doNotHaveAnAccount": "Do not have an account?",
+    "alreadyHaveAnAccount": "Already have an account?",
+    "creataNewOne": "Create a new one",
+    "enterYourEmailOrPhone": "Enter your email or phone number",
+    "enterYourPassword": "Enter your password",
+    "forgotYourPassword": "Forgot your password?",
+    "fullName": "Full Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "policyAgreement": "I have read and agreed to the Terms of Service and Privacy Policy "
   }
 }

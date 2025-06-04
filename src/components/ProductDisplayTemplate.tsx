@@ -154,9 +154,10 @@ const ProductsDisplayTemplate: React.FC<ProductsDisplayTemplateProps> = ({
               <div key={index} className=" w-[23%]  p-4 flex flex-col">
                 <Card
                   data={product}
-                  discountPercentage={13}
+                  discountPercentage={product.discountPercentage}
                   width=" "
                   isVertical={true}
+                  displayName={false}
                 />
                 <p className=" text-[#404040] text-2xl "> {product.name} </p>
                 <div>

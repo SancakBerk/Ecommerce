@@ -98,3 +98,7 @@ export type priceRangeType = {
   to: number;
   currency: string;
 };
+export type authResponseType = {
+  accessToken: string;
+  userId: string;
+};

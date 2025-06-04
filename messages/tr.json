@@ -80,5 +80,20 @@
     "productLocale": "Dil Seçimi",
     "productId": "Ürün Kodu",
     "similarProducts": "Benzer Ürünler"
+  },
+  "loginAndSignUp": {
+    "login": "Giriş",
+    "signUp": "Kayıt Ol",
+    "doNotHaveAnAccount": "Hesabınız yok mu?",
+    "alreadyHaveAnAccount": "Zaten bir hesabınız var mı?",
+    "creataNewOne": "Yeni bir hesap oluşturun",
+    "enterYourEmailOrPhone": "Email veya telefon numaranızı girin",
+    "enterYourPassword": "Parolanızı girin",
+    "forgotYourPassword": "Parolanızı mı unuttunuz?",
+    "fullName": "Adınız Soyadınız",
+    "email": "Email",
+    "password": "Parola",
+    "confirmPassword": "Parolayı Onayla",
+    "policyAgreement": "Hizmet Şartları ve Gizlilik Politikasını okudum ve kabul ediyorum"
   }
 }

@@ -13,9 +13,10 @@ const CardType2: React.FC<CardType2Props> = ({ product }): JSX.Element => {
     <div>
       <Card
         data={product}
-        discountPercentage={13}
+        discountPercentage={product.discountPercentage}
         width=" "
         isVertical={true}
+        displayName={false}
       />
       <p className=" text-[#404040] text-2xl "> {product.name} </p>
       <div>
